@@ -1,0 +1,40 @@
+Name: WalletBuddy
+
+Idea: WalletBuddy is a simple tool designed to help you keep track of every dollar you spend or earn. Its main goal is to organize your money by saving your information in a database and showing you exactly where your cash is going. It uses smart logic to calculate your total balance and helps you stay on top of your budget.
+
+Pages:
+  1.
+    Name: 
+      The Welcome Page
+    Description: 
+      The Look: 
+        A full-screen, minimalist "Splash" style. It features a friendly logo (like a wallet with a smiley face), a bold "Hello!" or "Welcome!" heading, and a short, one-sentence subtext explaining the app's purpose.
+      The Purpose: 
+        To create a warm first impression and give the user three clear paths:
+        1. Sign Up (Primary big button)
+        2. Log In (Secondary text link)
+        3. Set Up Later (Small "Guest" link at the bottom) to let them explore without commitment.
+  2.
+    Name: 
+      The Dashboard Page
+    Description:
+      The Look: 
+        A clean "Summary View." Large, easy-to-read numbers at the top for your Balance, followed by colorful "In/Out" cards. The middle has your Budget Slider, and the bottom shows a "Quick View" of the last few things you bought.
+      The Purpose: 
+       To provide a 5-second health check on the user's money. It uses Logic and Variables to summarize all their database data into three simple numbers.
+  3.
+    Name: 
+      The Add Page
+    Description:
+      The Look: 
+        A focused, "One-Task" screen. Large input fields for the Amount ($) and a "Category Grid" (tappable icons like a bus for transport or a fork for food).
+      The Purpose: 
+        To make data entry as fast as possible. This is the Create part of your CRUD system. It uses Events to handle the tap actions and PDO to send that data to the server.
+  4.
+    Name:
+      The Account Page
+    Description:
+      The Look: 
+        A simple list-based "Control Panel." It features a user icon at the top and vertical buttons for "Security," "Edit Profile," or "Log Out."
+      The Purpose: 
+        This acts as the management hub. If they are a Guest, the purpose is to encourage them to Sign Up to save their progress. If they are a User, it’s where they manage their account or securely Log Out (destroying the PHP Session).
