@@ -1,3 +1,20 @@
+<?php
+session_start();
+$conn = new PDO("mysql:host=localhost;dbname=walletbuddy", "root", "");
+
+$user_id = $_SESSION['user_id'] ?? 1;
+
+$stmt = $conn->prepare("SELECT SUM(amount) FROM transactions WHERE user_id=? AND type='income'");
+$stmt->execute([$user_id]);
+$income = $stmt->fetchColumn() ?? 0;
+
+$stmt = $conn->prepare("SELECT SUM(amount) FROM transactions WHERE user_id=? AND type='expense'");
+$stmt->execute([$user_id]);
+$expense = $stmt->fetchColumn() ?? 0;
+
+$balance = $income - $expense;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -216,7 +233,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['username']; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -266,7 +283,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Total Balance</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $balance; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-wallet fa-2x text-gray-300"></i>
@@ -283,7 +300,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Monthly Income</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$75,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $income; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -300,7 +317,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                                 Monthly Expenses</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$25,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $expense; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
