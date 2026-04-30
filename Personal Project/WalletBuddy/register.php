@@ -24,7 +24,7 @@
 		else
 		{
 
-			$sql = "INSERT INTO users(emri,username,email,password, confirm_password) VALUES (:emri, :username, :email, :password, :confirm_password)";
+			$sql = "INSERT INTO account(emri,username,email,password, confirm_password) VALUES (:emri, :username, :email, :password, :confirm_password)";
 
 			$insertSql = $conn->prepare($sql);
 			
