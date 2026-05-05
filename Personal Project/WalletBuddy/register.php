@@ -37,7 +37,7 @@
 
 			$insertSql->execute();
 
-			header("Location: login.php");
+			header("Location: login_page.php");
 
 
 		}

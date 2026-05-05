@@ -43,7 +43,7 @@
                                     </div>
                                     <form class="user" method="POST" action="login.php">
                                         <div class="form-group">
-                                            <input type="email" name="email" class="form-control form-control-user" placeholder="Enter Email Address...">
+                                            <input type="text" name="username" class="form-control form-control-user" placeholder="Enter Username">
                                         </div>
                                         <div class="form-group">
                                                 <input type="password" name="password" class="form-control form-control-user" placeholder="Password">
@@ -55,7 +55,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button name="submit" type="submit" class="btn btn-primary btn-user btn-block" >
                                             Login
                                         </button>
                                         <hr>
@@ -68,7 +68,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="register_page.php">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
