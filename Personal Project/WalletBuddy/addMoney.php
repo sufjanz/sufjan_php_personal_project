@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new PDO("mysql:host=localhost;dbname=walletbuddy", "root", "");
+include_once("config.php");
 $user_id = $_SESSION['id'] ?? 1;
 
 if(isset($_POST['submit'])) {
@@ -276,13 +276,21 @@ if(isset($_POST['submit'])) {
                         <option value="expense">Expense</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <?php
+                if(value == "expense"){ ?>
+                    <div class="form-group" style="">
                     <label>Category</label>
-                    <select name="category" class="form-control">
+                    <select name="category" class="form-control" >
                         <option>Food</option><option>Transport</option>
                         <option>Bills</option><option>Entertainment</option><option>Other</option>
                     </select>
                 </div>
+                <?php
+                } 
+                else {
+
+                }
+                ?>
                 <button type="submit" name="submit" class="btn btn-primary btn-block">Add</button>
             </form>
         </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new PDO("mysql:host=localhost;dbname=walletbuddy", "root", "");
+include_once("config.php");
 
 $user_id = $_SESSION['id'] ?? 1;
 
